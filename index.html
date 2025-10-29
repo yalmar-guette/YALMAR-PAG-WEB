@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Control | Mi Inventario</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="panel-container">
+    <div class="header">
+      <div class="header-title">Mi Inventario</div>
+      <div class="header-user">
+        <span>Hola, Juan Pérez</span>
+        <button class="btn-accent">Cerrar Sesión</button>
+      </div>
+    </div>
+    <div class="card-group">
+      <!-- Controles Generales -->
+      <div class="card">
+        <h3>Controles Generales</h3>
+        <label for="tasa">Tasa del día (1 USD a VES)</label>
+        <input type="number" id="tasa" value="40.50">
+        <button class="btn-accent">Actualizar Tasa</button>
+      </div>
+      <!-- Añadir Producto -->
+      <div class="card">
+        <h3>Añadir Producto</h3>
+        <form autocomplete="off">
+          <label for="producto-nombre">Nombre del Producto</label>
+          <input type="text" id="producto-nombre" required>
+          <label for="producto-precio">Precio en USD</label>
+          <input type="number" id="producto-precio" min="0" step="0.01" required>
+          <label for="producto-cantidad">Cantidad Inicial</label>
+          <input type="number" id="producto-cantidad" min="0" required>
+          <button class="btn-blue">Agregar Producto</button>
+        </form>
+      </div>
+      <!-- Registrar Venta -->
+      <div class="card">
+        <h3>Registrar Venta</h3>
+        <form id="ventaForm" autocomplete="off">
+          <div id="venta-productos">
+            <div class="venta-row">
+              <label>Producto</label>
+              <select>
+                <option>Harina</option>
+                <option>Arroz</option>
+                <option>Café</option>
+              </select>
+              <label>Cantidad</label>
+              <input type="number" min="1" value="1">
+            </div>
+          </div>
+          <button type="button" class="btn-main" id="addProducto">+ Añadir otro producto</button>
+          <label for="metodo-pago">Método de Pago</label>
+          <select id="metodo-pago">
+            <option>Pago Móvil</option>
+            <option>Dólares Efectivo</option>
+            <option>Punto de Venta</option>
+            <option>Zelle</option>
+            <option>Transferencia</option>
+          </select>
+          <button class="btn-success" style="margin-top:1rem;">Registrar Venta</button>
+        </form>
+      </div>
+      <!-- Inventario -->
+      <div class="card">
+        <h3>Inventario</h3>
+        <table class="card-table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Stock</th>
+              <th>Precio (USD)</th>
+              <th>Precio (VES)</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Harina</td>
+              <td>34</td>
+              <td>2.00</td>
+              <td>81.00</td>
+              <td class="actions-btns">
+                <button class="btn-blue">Editar</button>
+                <button class="btn-danger">Eliminar</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Arroz</td>
+              <td>15</td>
+              <td>1.50</td>
+              <td>60.75</td>
+              <td class="actions-btns">
+                <button class="btn-blue">Editar</button>
+                <button class="btn-danger">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Generar Reporte de Ventas -->
+      <div class="card">
+        <h3>Generar Reporte de Ventas</h3>
+        <label>Desde</label>
+        <input type="date">
+        <label>Hasta</label>
+        <input type="date">
+        <button class="btn-accent">Imprimir Reporte</button>
+      </div>
+      <!-- Historial de Ventas -->
+      <div class="card">
+        <h3>Historial de Ventas</h3>
+        <table class="card-table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Total (USD)</th>
+              <th>Método de Pago</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025-10-28</td>
+              <td>Harina</td>
+              <td>2</td>
+              <td>4.00</td>
+              <td>Pago Móvil</td>
+            </tr>
+            <tr>
+              <td>2025-10-28</td>
+              <td>Arroz</td>
+              <td>1</td>
+              <td>1.50</td>
+              <td>Dólares Efectivo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('addProducto').addEventListener('click', function() {
+      var productosDiv = document.getElementById('venta-productos');
+      var lastRow = productosDiv.lastElementChild;
+      var newRow = lastRow.cloneNode(true);
+      productosDiv.appendChild(newRow);
+    });
+  </script>
+</body>
+</html>
