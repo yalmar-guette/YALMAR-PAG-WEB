@@ -1,0 +1,252 @@
+/* style.css - Diseño Final con Azul Polar y Naranja */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --azul-polar: #0033a0;       /* El azul principal del logo de Polar */
+    --azul-secundario: #004bbf; /* Un tono un poco más claro para hover */
+    --fondo-pagina: #f0f4f8;     /* Un fondo gris muy claro para que resalten los colores */
+    --fondo-tarjeta: #ffffff;    /* Tarjetas blancas para un look limpio */
+    --naranja-acento: #ff6c22;
+    --texto-principal: #333333;   /* Texto oscuro para legibilidad */
+    --texto-titulos: #0033a0;     /* Títulos con el azul Polar */
+    --texto-blanco: #ffffff;
+    --sombra: 0 6px 18px rgba(0, 51, 160, 0.1); /* Sombra sutil con tono azulado */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--fondo-pagina);
+    color: var(--texto-principal);
+    margin: 0;
+    padding: 20px;
+}
+
+/* --- Login y Registro --- */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--azul-polar), var(--azul-secundario));
+}
+.login-container {
+    padding: 40px;
+    background: var(--fondo-tarjeta);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 380px;
+}
+.login-container h2 {
+    color: var(--texto-titulos);
+    margin-bottom: 10px;
+}
+.login-container p {
+    color: #666;
+    margin-bottom: 25px;
+}
+.login-container input {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--naranja-acento);
+    color: var(--texto-blanco);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.login-container button:hover {
+    background-color: #e05c1e;
+    transform: translateY(-2px);
+}
+.error { color: #D8000C; }
+.mensaje { color: #4F8A10; }
+
+
+/* --- Panel Principal --- */
+.container {
+    max-width: 1400px;
+    margin: auto;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--fondo-tarjeta);
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: var(--sombra);
+}
+header h1 {
+    margin: 0;
+    color: var(--texto-titulos);
+    font-size: 24px;
+}
+.logout-btn {
+    background-color: var(--naranja-acento);
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+.logout-btn:hover {
+    background-color: #e05c1e;
+    transform: translateY(-2px);
+}
+
+h2 {
+    color: var(--texto-titulos);
+    border-bottom: 2px solid var(--naranja-acento);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: var(--fondo-tarjeta);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--sombra);
+    margin-bottom: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+}
+th {
+    background-color: var(--azul-polar);
+    color: var(--texto-blanco);
+    font-weight: 600;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+tr:hover {
+    background-color: #f1f5f9;
+}
+
+form input, form select {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button {
+    background: var(--azul-polar);
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s;
+    width: 100%;
+}
+button:hover {
+    background-color: var(--azul-secundario);
+    transform: translateY(-2px);
+}
+
+/* Botones específicos */
+.acciones { display: flex; gap: 10px; align-items: center; }
+.acciones form { margin: 0; padding: 0; background: none; }
+
+.edit-button, .delete-button {
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    color: white;
+}
+.edit-button { background-color: #007bff; }
+.edit-button:hover { background-color: #0056b3; transform: translateY(-2px); }
+.delete-button { background-color: #c0392b; width: auto; }
+.delete-button:hover { background-color: #a93226; transform: translateY(-2px); }
+
+.tasa-form button, .report-form button {
+    background: var(--naranja-acento);
+}
+.tasa-form button:hover, .report-form button:hover {
+    background: #e05c1e;
+}
+
+.report-form {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+}
+.report-form div {
+    display: flex; flex-direction: column;
+}
+.report-form label {
+    margin-bottom: 5px; font-size: 14px; font-weight: 600;
+}
+.report-form input[type="date"] {
+    padding: 10px; width: auto;
+}
+.report-form button {
+    width: auto; align-self: flex-end;
+}
+/* ... (todo tu CSS anterior) ... */
+
+/* --- Estilos para formulario de venta múltiple --- */
+.producto-venta-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#add-product-btn {
+    width: 100%;
+    margin: 10px 0;
+    background: #555;
+    font-size: 14px;
+    padding: 10px;
+}
+#add-product-btn:hover {
+    background: #777;
+}
+
+.submit-venta {
+    margin-top: 15px;
+    background: linear-gradient(45deg, #28a745, #218838); /* Verde para finalizar */
+}
+.submit-venta:hover {
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--azul-borde);
+    margin: 20px 0;
+}
